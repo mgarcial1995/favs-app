@@ -1,18 +1,16 @@
 const mongoose = require('mongoose')
-
-const listSchema = new mongoose.Schema({
-    name: { type: String},
-    // userID: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "User"
-    // }
+let listField = {
+    name: { type: String}
+}
+let refList = {
     favs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Favs"
     }],
-},
-{
-    collection: 'List'
-});
-
-module.exports = mongoose.model('List', listSchema);
+};
+const ListModel = mongoose.Schema(
+    Object.assign(listField, refList),
+    { collection: "List" },
+    { timestamps: true },
+);
+module.exports = { ListModel: mongoose.model("List", ListModel), refList };

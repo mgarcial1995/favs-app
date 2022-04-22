@@ -1,9 +1,12 @@
-const ListModel = require("./model");
+const {ListModel, refList} = require("./model");
 const {Model} = require("../users/model");
 const jwt = require("jsonwebtoken");
+const referencesNames = Object.getOwnPropertyNames(refList);
 
 exports.getAllLists = (req, res) => {
+  const populate = referencesNames.join(' ');
   ListModel.find()
+    .populate(populate)
     .exec()
     .then((response) => {
       res.status(200).json({ success: true, lists: response });
@@ -60,6 +63,10 @@ exports.deleteList = (req, res) => {
       console.log(err);
       res.status(400).json({ success: false, error: err });
     });
+};
+exports.getListById = async (req, res) => {
+  const lists = await ListModel.findOne({ _id: req.params.id });
+  return res.status(200).json({ success: true, response: lists });
 };
 exports.updateList = (req, res) => {
   const id = req.params.id;

@@ -4,10 +4,7 @@ const favsSchema = new mongoose.Schema({
     title: { type: String},
     description: { type: String},
     link: { type: String},
-    listID:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "List"
-    }
+    idList: {type: String}
 },
 {
     collection: 'Favs'
