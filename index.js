@@ -7,6 +7,7 @@ const app = express();
 const usersRoutes = require("./api/users/routes");
 const listRoutes = require("./api/list/routes");
 const favsRoutes = require("./api/favs/routes");
+//connect mongo
 mongoose.connect(
 	`mongodb://localhost:27017/favsdb`
 );
