@@ -1,0 +1,27 @@
+{
+  "name": "favs-app",
+  "version": "1.0.0",
+  "description": "Para la empresa FAVS",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgarcial1995/favs-app.git"
+  },
+  "author": "Martin Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgarcial1995/favs-app/issues"
+  },
+  "homepage": "https://github.com/mgarcial1995/favs-app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.0",
+    "nodemon": "^2.0.15"
+  }
+}
